@@ -14,21 +14,18 @@ Simply put, a Shard is a package of Crystal code, made to be shared-with and use
 If you haven't already, install the latest version of the Crystal compiler.
 [Installation instructions here](https://crystal-lang.org/docs/installation/)
 
-...and if you haven't done that, 
-
 
 ## Usage
 
 In this tutorial, we'll be making a Crystal library called _palindrome-example_.
 
-> For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. 
-  
-> E.g. racecar, mom, dad, kayak, madam
+> For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam
 
 ### Creating the Project
 Begin by using [the Crystal compiler](https://crystal-lang.org/docs/using_the_compiler/) to generate a new library in a subfolder of the current directory.
 
-In your terminal, enter 
+In your terminal, enter:
+
 ```bash
  $  crystal init lib palindrome-example
       create  palindrome-example/.gitignore
@@ -44,7 +41,8 @@ In your terminal, enter
 Initialized empty Git repository in /Users/YOUR_USER_NAME/.../palindrome-example/.git/
 ```
 
-...and `cd` into the directory
+...and `cd` into the directory:
+
 ```bash
 cd palindrome-example
 ```
