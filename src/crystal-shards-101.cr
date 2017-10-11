@@ -29,6 +29,7 @@ module CrystalShards101
           <meta http-equiv="X-UA-Compatible" content="ie=edge">
           <base target="_blank">          
           <!-- Compiled and minified CSS -->
+          <link id="icon" rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f48e.png" sizes="32x32">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">        
           <title>Crystal Shards 101</title>
           <style>
