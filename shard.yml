@@ -1,0 +1,10 @@
+name: crystal-shards-101
+version: 0.1.0
+description: |
+  A How-To Guide and Checklist for Building and Releasing Crystal Shards
+authors:
+  - mccallofthewild <mccallalexander96@gmail.com>
+
+crystal: 0.23.1
+
+license: MIT

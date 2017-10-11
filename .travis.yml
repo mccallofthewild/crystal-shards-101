@@ -1,0 +1,12 @@
+language: crystal
+script:
+  - crystal spec
+  - crystal run src/crystal-shards-101.cr
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: crystal-shards-101
+  on:
+    branch: master
+  local_dir: gh-pages
