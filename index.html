@@ -1,0 +1,281 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <base target="_blank">          
+          <!-- Compiled and minified CSS -->
+          <link id="icon" rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f48e.png" sizes="32x32">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">        
+          <title>Crystal Shards 101</title>
+          <style>
+            html {
+              background-image: url(https://source.unsplash.com/YMBpLXZrHmc/1600x900/);
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+            }
+            ul:not(.browser-default) {
+              padding-left: inherit;
+              list-style-type: inherit;
+            }
+            ul:not(.browser-default)>li {
+              list-style-type: initial;
+              list-style-image: url(https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f48e.svg);
+            }
+            </style>
+          </head>
+          <body>
+            <div class="container"> 
+              <div class="card">
+                <div class="card-content"> 
+                  <h1>💎 👩‍🏫 Crystal Shards 101</h1>
+
+<p>How to write and release Crystal Shards.</p>
+
+<h2></h2>
+
+<p><a href="https://travis-ci.org/mccallofthewild/crystal-shards-101"><img src="https://travis-ci.org/mccallofthewild/crystal-shards-101.svg?branch=master" alt="Build Status"/></a> <a href="https://mccallofthewild.github.io/crystal-shards-101/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"/></a> <a href="https://github.com/mccallofthewild/crystal-shards-101/releases"><img src="https://img.shields.io/github/release/mccallofthewild/crystal-shards-101.svg" alt="GitHub release"/></a></p>
+
+<h2><em>What's a Shard?</em></h2>
+
+<p>Simply put, a Shard is a package of Crystal code, made to be shared-with and used-by other projects.</p>
+
+<h2>Installation</h2>
+
+<p>If you haven't already, install the latest version of the Crystal compiler.
+<a href="https://crystal-lang.org/docs/installation/">Installation instructions here</a></p>
+
+<h2>Usage</h2>
+
+<p>In this tutorial, we'll be making a Crystal library called <em>palindrome-example</em>.</p>
+
+<blockquote>For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam</blockquote>
+
+<h3>Creating the Project</h3>
+
+<p>Begin by using <a href="https://crystal-lang.org/docs/using_the_compiler/">the Crystal compiler</a> to generate a new library in a subfolder of the current directory.</p>
+
+<p>In your terminal, enter:</p>
+
+<pre><code class='language-bash'> $  crystal init lib palindrome-example
+      create  palindrome-example/.gitignore
+      create  palindrome-example/.editorconfig
+      create  palindrome-example/LICENSE
+      create  palindrome-example/README.md
+      create  palindrome-example/.travis.yml
+      create  palindrome-example/shard.yml
+      create  palindrome-example/src/palindrome-example.cr
+      create  palindrome-example/src/palindrome-example/version.cr
+      create  palindrome-example/spec/spec_helper.cr
+      create  palindrome-example/spec/palindrome-example_spec.cr
+Initialized empty Git repository in /Users/YOUR_USER_NAME/.../palindrome-example/.git/</code></pre>
+
+<p>...and <code>cd</code> into the directory:</p>
+
+<pre><code class='language-bash'>cd palindrome-example</code></pre>
+
+<p>Then <code>add</code> & <code>commit</code> to start tracking the files with Git:</p>
+
+<pre><code class='language-bash'> $  git add -A
+ $  git commit -am "First Commit"
+[master (root-commit) 77bad84] First Commit
+ 10 files changed, 102 insertions(+)
+ create mode 100644 .editorconfig
+ create mode 100644 .gitignore
+ create mode 100644 .travis.yml
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 shard.yml
+ create mode 100644 spec/palindrome-example_spec.cr
+ create mode 100644 spec/spec_helper.cr
+ create mode 100644 src/palindrome-example.cr
+ create mode 100644 src/palindrome-example/version.cr</code></pre>
+
+<h3>Writing the Code</h3>
+
+<p>The code you write is up to you, but how you write it impacts whether people want to use your library and/or help you maintain it.</p>
+
+<h4>TDD</h4>
+
+<ul><li>Test your code. All of it. It's the only way for anyone, including you, to know if it works.</li><li>Crystal has <a href="https://crystal-lang.org/api/0.23.1/Spec.html">an awesome built-in testing library</a>. Use it!</li></ul>
+
+<h4>Documentation</h4>
+
+<ul><li>Document your code with comments. All of it. Even the private methods.</li><li>Crystal has <a href="https://crystal-lang.org/docs/conventions/documenting_code.html">an awesome built-in documentation generator</a>. Use it!</li></ul>
+
+<p>Run <code>crystal doc</code> and open the files in <code>/doc/</code> in your browser to see how your documentation is looking along the way. (the process of seeing your comments and code magically turned into documentation is surprisingly satisfying)</p>
+
+<h4>Coding Style </h4>
+
+<ul><li>It's fine to have your own style, but sticking to <a href="https://crystal-lang.org/docs/conventions/coding_style.html">some core rubrics defined by the Crystal team</a> can help keep your code consistent, readable and usable for other developers.</li></ul>
+
+<h3>Writing a README</h3>
+
+<p>A good README can make or break your project.
+<a href="https://github.com/matiassingers/awesome-readme">Awesome README</a> is a nice curation of examples and resources on the topic.</p>
+
+<p>Most importantly, your README should explain: </p>
+
+<ol><li>what your library is </li><li>what it does</li><li>how to use it</li></ol>
+
+<p>This explanation should include a few examples along with subheadings.</p>
+
+<p>NOTE: Be sure to replace all instances of <code>[your-github-name]</code> in the Crystal-generated README template with your Github username.</p>
+
+<p>Fill out and insert the following block of markdown build badges below the description in your README. </p>
+
+<blockquote>The purpose of this is to inform users on the status of certain aspects of your repository. More on this in a minute.</blockquote>
+
+<pre><code class='language-Markdown'>[![Build Status](https://travis-ci.org/[YOUR-GITHUB-USERNAME]/[YOUR-REPOSITORY-NAME].svg?branch=master)](https://travis-ci.org/[YOUR-GITHUB-USERNAME]/[YOUR-REPOSITORY-NAME]) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://[YOUR-GITHUB-USERNAME].github.io/[YOUR-REPOSITORY-NAME]/) [![GitHub release](https://img.shields.io/github/release/[YOUR-GITHUB-USERNAME]/[YOUR-REPOSITORY-NAME].svg)](https://github.com/[YOUR-GITHUB-USERNAME]/[YOUR-REPOSITORY-NAME]/releases)</code></pre>
+
+<h3>Writing a <code>shard.yml</code></h3>
+
+<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md#names">The spec</a> is your rulebook. Follow it.</p>
+
+<h4>Name</h4>
+
+<p>Your <code>shard.yml</code>'s <code>name</code> property should be concise and descriptive. </p>
+
+<ul><li>Search <a href="https://crystalshards.xyz/">crystalshards.xyz</a> to check if your name is already taken.</li></ul>
+
+<p>e.g.</p>
+
+<pre><code class='language-YAML'>name: palindrome-example</code></pre>
+
+<h4>Description</h4>
+
+<p>Add a <code>description</code> to your <code>shard.yml</code>. </p>
+
+<p>A <code>description</code> is a single line description used to search for and find your shard.</p>
+
+<p>A description should be:</p>
+
+<ol><li>Informative</li><li>Discoverable</li></ol>
+
+<h4>Optimizing</h4>
+
+<p>It's hard for anyone to use your project if they can't find it.
+<a href="https://crystalshards.xyz/">crystalshards.xyz</a> is currently the go-to place for Crystal libraries, so that's what we'll optimize for.</p>
+
+<p>There are people looking for the <em>exact</em> functionality of our library and the <em>general</em> functionality of our library.
+e.g. Bob needs a palindrome library, but Felipe is just looking for libraries involving text and Susan is looking for libraries involving spelling.</p>
+
+<p>Our <code>name</code> is already descriptive enough for Bob's search of "palindrome". We don't need to repeat the <em>palindrome</em> keyword. Instead, we'll catch Susan's search for "spelling" and Felipe's search for "text".</p>
+
+<pre><code class='language-YAML'>description: |
+  A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.</code></pre>
+
+<h3>Github</h3>
+
+<ul><li>Create a repository with the same <code>name</code> and <code>description</code> as specified in your <code>shard.yml</code>.</li></ul>
+
+<ul><li>Add and commit everything:</li></ul>
+
+<pre><code class='language-bash'>$ git add -A && git commit -am "shard complete"</code></pre>
+
+<ul><li>Add the remote: </li></ul>
+
+<pre><code class='language-bash'>$ git remote add public https://github.com/[YOUR-GITHUB-NAME]/[YOUR-REPOSITORY-NAME].git</code></pre>
+
+<ul><li>Push it: </li></ul>
+
+<pre><code class='language-bash'>$ git push public master</code></pre>
+
+<h4>Github Releases</h4>
+
+<p>It's good practice to do Github Releases. </p>
+
+<p>Start by navigating to your repository's <em>releases</em> page.</p>
+
+<ul><li>This can be found at <em>https://github.com/YOUR-GITHUB-NAME/YOUR-REPOSITORY-NAME/releases</em></li></ul></ul>
+
+<p>Click "Create a new release".</p>
+
+<p>According to <a href="https://github.com/crystal-lang/shards/blob/master/README.md">the Crystal Shards README</a>, </p>
+
+<blockquote>When libraries are installed from Git repositories, the repository is expected to have version tags following a semver-like format, prefixed with a `v`. Examples: v1.2.3, v2.0.0-rc1 or v2017.04.1</blockquote>
+
+<p>Accordingly, in the input that says <code>tag version</code>, type <code>v0.1.0</code>. Make sure this matches the <code>version</code> in <code>shard.yml</code>. Title it <code>v0.1.0</code> and write a short description for the release.</p>
+
+<p>Click "Publish release" and you're done!</p>
+
+<p>You'll now notice that the Github Release badge has updated in your README.</p>
+
+<p>Follow <a href="http://semver.org/">Semantic Versioning</a> and create a new release every time your push to <code>master</code>.</p>
+
+<h3>Setting up Travis CI and <code>.travis.yml</code></h3>
+
+<p>If you haven't already, <a href="https://travis-ci.org/">sign up for Travis CI</a>.</p>
+
+<p>Add the following lines to your <code>.travis.yml</code>:</p>
+
+<pre><code class='language-YAML'>script:
+  - crystal spec</code></pre>
+
+<p>This tells Travis CI to run your tests.</p>
+
+<p>Commit and push to Github.</p>
+
+<p>Follow <a href="https://docs.travis-ci.com/user/getting-started/">these guidelines</a> to get your repo up & running on Travis CI.</p>
+
+<p>Once you're up and running, and the build is passing, the Build badge will update in your README.</p>
+
+<h3>Hosting your <code>docs</code> on Github-Pages</h3>
+
+<p>Add the following <code>script</code> to your <code>.travis.yml</code>:</p>
+
+<pre><code class='language-YAML'>  - crystal docs</code></pre>
+
+<p>This tells Travis CI to generate your documentation.</p>
+
+<p>Next, add the following lines to your <code>.travis.yml</code>.</p>
+
+<pre><code class='language-YAML'>deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: YOUR-GITHUB-REPOSITORY-NAME
+  on:
+    branch: master
+  local_dir: doc</code></pre>
+
+<p><a href="https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings">Set the Environment Variable</a>, <code>GITHUB_TOKEN</code>, with your <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access token</a>.</p>
+
+<p>If you've been following along, your <code>.travis.yml</code> file should look something like this:</p>
+
+<pre><code class='language-YAML'>language: crystal
+script:
+  - crystal spec
+  - crystal docs
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: YOUR-GITHUB-REPOSITORY-NAME
+  on:
+    branch: master
+  local_dir: doc</code></pre>
+
+<p><a href="https://docs.travis-ci.com/user/deployment/pages/">Click Here</a> for the official documentation on deploying to GH-Pages with Travis CI.</p>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/mccallofthewild/crystal-shards-101/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2>Contributors</h2>
+
+<ul><li><a href="https://github.com/mccallofthewild">McCall Alexander</a> mccallofthewild - creator, maintainer</li></ul>
+                  <p>Background Photo:</p>
+                  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://unsplash.com/@ghpvisuals?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Grant Porter"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Grant Porter</span></a>
+                </div>
+              </div>
+            </div>
+          </body>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        </html>
+      
